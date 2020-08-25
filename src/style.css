@@ -103,3 +103,7 @@ body {
   box-shadow: 0.75px 0.75px 0.75px 0.75px rgba(0, 0, 255, 0.2);
   cursor: pointer;
 }
+
+.source-code-link {
+  text-align: center;
+}
