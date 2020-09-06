@@ -83,6 +83,10 @@ body {
   font-size: larger;
 }
 
+.humidityWindList {
+  list-style: none;
+}
+
 .tomorrow,
 .tomorrow-1,
 .tomorrow-2,

@@ -68,19 +68,26 @@
       </button>
 
       <div class="row current-temp-line">
-        <div class="col-6">
+        <div class="col-4">
           <span id="current-day" class="currentDay"> </span>
           <br />
           <span id="current-time" class="currentTime"> </span>
         </div>
 
-        <div class="col-6 todayTempCol">
+        <div class="col-4 todayTempCol">
           <span id="current-temperature" class="current-temperature">#</span>
           <span id="celsius" class="celsius">°C</span>
           <span id="fahrenheit" class="fahrenheit"> / °F</span>
           <br />
           <span class="min-temperature" id="min-temperature">15°C /</span>
           <span class="max-temperature" id="max-temperature">30°C</span>
+        </div>
+
+        <div class="col-4 humidityWindList">
+          <ul class="humidityWindList">
+            <li>Humidity <span id="humidity"></span>%</li>
+            <li>Wind <span id="wind"></span>km/h</li>
+          </ul>
         </div>
       </div>
       <!--end current-temp-line-->
