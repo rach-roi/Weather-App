@@ -28,7 +28,33 @@ function formatDate(dateTime) {
 let currentDateTime = new Date();
 formatDate(currentDateTime);
 
-//Feature 2 - change city heading based on search input, and display temperature
+//Feature 2 - change city heading based on search input, and display temperature and new date and time
+//Change date and time to the location you are searching
+
+function formatSearchedCityDateTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.gethours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  return `day, ${hours}:${minutes}`;
+}
 
 function displayTemp(response) {
   let temp = response.data.main.temp;
@@ -41,6 +67,9 @@ function displayTemp(response) {
   if (response.data.name === "Arrondissement de Lyon") {
     cityName.innerHTML = "Lyon, FR";
   }
+
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatSearchedCityDateTime(response.data.dt * 1000);
 }
 
 function changeCityName(event) {
@@ -83,22 +112,3 @@ function getTempCurrentLocation(event) {
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getTempCurrentLocation);
-
-/*Feature 3 - change C degrees to F (fake data) <-- will eventually convert and swap C and F
-
-function degreesFahr() {
-  let currentDegrees = document.querySelector("#current-temperature");
-  currentDegrees.innerHTML = `77`;
-}
-
-function degreesCelsius() {
-  let currentDegrees = document.querySelector("#current-temperature");
-  currentDegrees.innerHTML = `25`;
-}
-
-let fahrSymbol = document.querySelector("#fahrenheit");
-fahrSymbol.addEventListener("click", degreesFahr);
-
-let celsiusSymbol = document.querySelector("#celsius");
-celsiusSymbol.addEventListener("click", degreesCelsius);
-*/
